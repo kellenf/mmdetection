@@ -103,7 +103,7 @@ class ClassificationCost(object):
     """ClsSoftmaxCost.
 
      Args:
-         weight (int | float, optional): loss_weight
+         weight (int | float, optional): loss_weight. Default 1.0.
 
      Examples:
          >>> from mmdet.core.bbox.match_costs.match_cost import \
@@ -131,7 +131,7 @@ class ClassificationCost(object):
             gt_labels (Tensor): Label of `gt_bboxes`, shape (num_gt,).
 
         Returns:
-            torch.Tensor: cls_cost value with weight
+            torch.Tensor: cls_cost value with weight.
         """
         # Following the official DETR repo, contrary to the loss that
         # NLL is used, we approximate it in 1 - cls_score[gt_label].
@@ -147,8 +147,8 @@ class IoUCost(object):
     """IoUCost.
 
      Args:
-         iou_mode (str, optional): iou mode such as 'iou' | 'giou'
-         weight (int | float, optional): loss weight
+         iou_mode (str, optional): iou mode such as 'iou' | 'giou'.
+         weight (int | float, optional): loss weight. Default 1.0.
 
      Examples:
          >>> from mmdet.core.bbox.match_costs.match_cost import IoUCost
